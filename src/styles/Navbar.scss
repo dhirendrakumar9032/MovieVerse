@@ -1,0 +1,65 @@
+@import 'variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($card-background, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  color: $text-color;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, $primary-color, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search-bar {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba($text-color, 0.5);
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    background-color: rgba($card-background, 0.5);
+    border: 1px solid rgba($text-color, 0.1);
+    border-radius: 0.5rem;
+    color: $text-color;
+    font-size: 0.875rem;
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+      color: rgba($text-color, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background-color: rgba($card-background, 0.8);
+    }
+  }
+}

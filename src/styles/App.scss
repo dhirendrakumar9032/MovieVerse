@@ -1,0 +1,19 @@
+@import 'variables';
+
+.app {
+  min-height: 100vh;
+  background-color: $background-color;
+}
+
+.main-content {
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
