@@ -14,6 +14,7 @@ Welcome to MovieVerse, the ultimate destination for discovering and exploring mo
 ## Technologies Used
 
 - React.js
+- Typescript
 - Scss
 - Vite
 - Vercel (for deployment)
