@@ -1,5 +1,5 @@
 # MovieVerse 
-[Demo]('https://movie-verse-tan.vercel.app/')
+###[Demo](https://movie-verse-tan.vercel.app/)
 
 Welcome to MovieVerse, the ultimate destination for discovering and exploring movies! This web application allows users to browse a vast collection of movies, view detailed information about each title, and search for their favorite films.
 <img width="1512" alt="Screenshot 2024-11-13 at 11 25 32" src="https://github.com/user-attachments/assets/f9a7d0a3-a6c2-4c38-9432-3b424f22d159">
