@@ -8,8 +8,10 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+  
   return (
-    <div className="movie-card">
+    <>
+    <div className="movie-card" >
       <div className="movie-poster">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -29,6 +31,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
         <p className="release-date">{new Date(movie.release_date).getFullYear()}</p>
       </div>
     </div>
+    </>
   );
 };
 

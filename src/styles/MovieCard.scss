@@ -22,7 +22,7 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
@@ -62,10 +62,6 @@
   .movie-overview {
     color: $text-color;
     font-size: 0.875rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
     overflow: hidden;
   }
 

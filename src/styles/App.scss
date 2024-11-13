@@ -12,8 +12,46 @@
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1400px;
   margin: 0 auto;
 }
+
+.footer{
+  display: flex;
+  align-content: center;
+  gap: 24px;
+  justify-content: right;
+  position: sticky;
+  bottom: 10px;
+
+  button{
+    width: 100px;
+    align-items: center;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    color: #fff;
+    cursor: pointer;
+    height: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    font-size: 18px;
+  }
+
+  button:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  }
+
+  button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  button:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+}
+

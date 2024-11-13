@@ -11,7 +11,7 @@ const Navbar: React.FC<NavbarProps> = ({ searchQuery, onSearchChange }) => {
   return (
     <nav className="navbar">
       <div className="nav-content">
-        <h1 className="logo">MovieHub</h1>
+        <h1 className="logo">MovieVerse</h1>
         <div className="search-bar">
           <Search className="search-icon" size={20} />
           <input

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
@@ -10,46 +10,42 @@ const API_BASE_URL = 'https://api.themoviedb.org/3';
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchMovies = async () => {
+      let url;
+      if (searchQuery.trim()) {
+        url = `${API_BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(searchQuery)}&language=en-US&page=${page}`;
+      } else {
+        url = `${API_BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`;
+      }
+
       try {
-        const response = await fetch(
-          `${API_BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-        );
+        const response = await fetch(url);
         const data = await response.json();
         setMovies(data.results);
-        setFilteredMovies(data.results);
       } catch (error) {
         console.error('Error fetching movies:', error);
       }
     };
 
     fetchMovies();
-  }, []);
-
-  useEffect(() => {
-    if (searchQuery.trim() === '') {
-      setFilteredMovies(movies);
-      return;
-    }
-
-    const filtered = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredMovies(filtered);
-  }, [searchQuery, movies]);
+  }, [searchQuery, page]); 
 
   return (
     <div className="app">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <main className="main-content">
         <div className="movies-grid">
-          {filteredMovies.map((movie) => (
+          {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
+        <footer className='footer'>
+          <button disabled={page <= 1} onClick={() => setPage(prev => prev - 1)}>Previous</button>
+          <button onClick={() => setPage(prev => prev + 1)}>Next</button>
+        </footer>
       </main>
     </div>
   );
