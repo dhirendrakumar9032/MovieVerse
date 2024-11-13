@@ -13,8 +13,8 @@ Welcome to MovieVerse, the ultimate destination for discovering and exploring mo
 ## Technologies Used
 
 - React.js
-- Next.js
-- Tailwind CSS
+- Scss
+- Vite
 - Vercel (for deployment)
 
 ## Getting Started
@@ -33,3 +33,6 @@ To get the project running locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/movie-verse.git
    cd movie-verse
+   npm install
+   npm run dev
+
