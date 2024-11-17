@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div className="app">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      {!isLoading ? <LoadingComp /> : <main className="main-content">
+      {isLoading ? <LoadingComp /> : <main className="main-content">
         {moviesList.length ? <div className="movies-grid">
           {moviesList.map((movie: Movie) => (
             <MovieCard key={movie.id} movie={movie} />
