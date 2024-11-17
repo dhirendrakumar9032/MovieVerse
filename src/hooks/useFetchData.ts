@@ -13,11 +13,10 @@ const useFetchData = () => {
         setSearchQuery(e.target.value);
     };
 
-    // Debouncing search query
     useEffect(() => {
         const handler = setTimeout(() => {
             setDebouncedSearchQuery(searchQuery);
-        }, 300); // Delay in ms
+        }, 100); 
 
         return () => {
             clearTimeout(handler);

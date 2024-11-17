@@ -1,7 +1,7 @@
-@import 'variables';
+@use 'variables';
 
 .movie-card {
-  background-color: $card-background;
+  background-color: variables.$card-background;
   border-radius: 0.75rem;
   overflow: hidden;
   transition: transform 0.2s ease-in-out;
@@ -32,7 +32,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $overlay-background;
+    background-color: variables.$overlay-background;
     padding: 1rem;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
@@ -45,13 +45,13 @@
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    background-color: rgba($primary-color, 0.9);
+    background-color: rgba(variables.$primary-color, 0.9);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    color: $text-color;
+    color: variables.$text-color;
     font-weight: 600;
 
     .star-icon {
@@ -60,7 +60,7 @@
   }
 
   .movie-overview {
-    color: $text-color;
+    color: variables.$text-color;
     font-size: 0.875rem;
     overflow: hidden;
   }
@@ -69,14 +69,14 @@
     padding: 1rem;
 
     h3 {
-      color: $text-color;
+      color: variables.$text-color;
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
     }
 
     .release-date {
-      color: rgba($text-color, 0.7);
+      color: rgba(variables.$text-color, 0.7);
       font-size: 0.875rem;
     }
   }
