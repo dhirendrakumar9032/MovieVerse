@@ -5,9 +5,49 @@
   background-color: $background-color;
 }
 
+.loading{
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+  align-items: center;
+  text-align: center;
+
+  img{
+    object-fit: contain;
+    height: 300px;
+  }
+
+  span{
+    font-size: 24px;
+  }
+
+}
+
 .main-content {
   padding: 2rem;
   margin-top: 4rem;
+
+  .noData{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 50%;
+    min-width: 300px;
+    margin: 24px auto;
+    text-align:  center;
+
+    img{
+      object-fit: contain;
+    }
+
+    .text{
+      font-size: 24px;
+    }
+  }
+
 }
 
 .movies-grid {

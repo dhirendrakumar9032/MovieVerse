@@ -1,47 +1,37 @@
-import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import MovieCard from './components/MovieCard';
-import { Movie } from './types/movie';
+import noData from './resources/not-found.svg'
+import loadingImg from './resources/laoding.svg'
 import './styles/App.scss';
+import { useFetchData } from './hooks/useFetchData';
+import { Movie } from './types/movie';
 
-const API_KEY = '2dca580c2a14b55200e784d157207b4d';
-const API_BASE_URL = 'https://api.themoviedb.org/3';
 
 function App() {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      let url;
-      if (searchQuery.trim()) {
-        url = `${API_BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(searchQuery)}&language=en-US&page=${page}`;
-      } else {
-        url = `${API_BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`;
-      }
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setMovies(data.results);
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
-    };
-
-    fetchMovies();
-  }, [searchQuery, page]); 
+  const {moviesList,isLoading,page,searchQuery,setSearchQuery,setPage,}=useFetchData();
+  console.log({isLoading})
+  
+  if(isLoading){
+    return <div className='loading'>
+      <img src={loadingImg} alt='loading'/>
+      <span>Loading</span>
+    </div>
+  }
 
   return (
     <div className="app">
       <Navbar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <main className="main-content">
-        <div className="movies-grid">
-          {movies.map((movie) => (
+       {moviesList.length? <div className="movies-grid">
+          {moviesList.map((movie:Movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
-        </div>
+        </div>:<div className='noData'>
+        <img src={noData} alt='noData'/>
+        <span className='text'>Sorry no result found!</span>
+          </div>}
+        
         <footer className='footer'>
           <button disabled={page <= 1} onClick={() => setPage(prev => prev - 1)}>Previous</button>
           <button onClick={() => setPage(prev => prev + 1)}>Next</button>
