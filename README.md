@@ -16,6 +16,8 @@ Welcome to MovieVerse, the ultimate destination for discovering and exploring mo
 - React.js
 - Typescript
 - Scss
+- React Query
+- Custom Hook
 - Vite
 - Vercel (for deployment)
 
