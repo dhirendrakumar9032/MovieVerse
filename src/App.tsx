@@ -9,7 +9,7 @@ import { Movie } from './types/movie';
 
 function App() {
 
-  const {moviesList,isLoading,page,searchQuery,setSearchQuery,setPage,}=useFetchData();
+  const {moviesList,isLoading,page,searchQuery,setSearchQuery,setPage}=useFetchData();
   console.log({isLoading})
   
   if(isLoading){
